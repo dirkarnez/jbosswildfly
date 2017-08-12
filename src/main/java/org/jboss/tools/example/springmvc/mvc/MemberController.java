@@ -1,5 +1,7 @@
 package org.jboss.tools.example.springmvc.mvc;
 
+import javax.validation.Valid;
+
 import org.jboss.tools.example.springmvc.domain.Member;
 import org.jboss.tools.example.springmvc.repo.MemberDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +28,7 @@ public class MemberController
     }
 
     @RequestMapping(method=RequestMethod.POST)
-    public String registerNewMember(@ModelAttribute("newMember") Member newMember, BindingResult result, Model model)
+    public String registerNewMember(@Valid @ModelAttribute("newMember") Member newMember, BindingResult result, Model model)
     {
         if (!result.hasErrors()) {
             memberDao.register(newMember);
