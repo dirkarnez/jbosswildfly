@@ -18,7 +18,7 @@
 	<import resource="jasper-views.xml"/> 
 
     <bean class="org.springframework.web.servlet.view.XmlViewResolver">
-        <property name="location" value="/WEB-INF/spring/app/jasper-views.xml"/>
+        <property name="location" value="/WEB-INF/jasper-views.xml"/>
         <property name="order" value="0"/>
     </bean> 
     
