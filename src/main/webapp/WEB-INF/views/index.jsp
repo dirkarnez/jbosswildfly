@@ -101,7 +101,7 @@
 							</tr>
 							<tr>
 								<td>
-									<input type="hidden" id="memberJson" value="${memberJson}">
+									<input type="hidden" id="membersJson" value="${membersJson}">
 									<button onclick="myFunction()">Click me</button>
 								</td>
 							</tr>
