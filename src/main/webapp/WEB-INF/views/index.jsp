@@ -11,9 +11,9 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
 		
 		<script>
-			function myFunction() {
+			function myFunction(content) {
 				var doc = new jsPDF();
-				doc.text($membersJson, 10, 10);
+				doc.text(content, 10, 10);
 				doc.save('a4.pdf');
 			}
 		</script>
@@ -97,7 +97,7 @@
 							<tr>
 								<td>
 									<input type="hidden" id="membersJson" value="${membersJson}">
-									<button onclick="myFunction()">Click me</button>
+									<button onclick="myFunction(${membersJson})">Click me</button>
 								</td>
 							</tr>
 						</table>
