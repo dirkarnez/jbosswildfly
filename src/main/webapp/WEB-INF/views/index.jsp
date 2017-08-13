@@ -13,7 +13,7 @@
 		<script>
 			function myFunction() {
 				var doc = new jsPDF();
-				doc.text(document.getElementById("memberJson").value, 10, 10);
+				doc.text($membersJson, 10, 10);
 				doc.save('a4.pdf');
 			}
 		</script>
@@ -92,11 +92,6 @@
 							<tr>
 								<td>
 									REST URL for all members: <a href="<c:url value="/rest/members"/>">/rest/members</a>
-								</td>
-							</tr>				
-							<tr>
-								<td>
-									${members}
 								</td>
 							</tr>
 							<tr>
