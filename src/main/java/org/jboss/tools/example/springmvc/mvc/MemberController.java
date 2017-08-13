@@ -1,5 +1,7 @@
 package org.jboss.tools.example.springmvc.mvc;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.jboss.tools.example.springmvc.domain.Member;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.google.gson.Gson;
+
 @Controller
 @RequestMapping(value="/")
 public class MemberController
@@ -22,8 +26,10 @@ public class MemberController
     @RequestMapping(method=RequestMethod.GET)
     public String displaySortedMembers(Model model)
     {
+    	List<Member> members = memberDao.findAllOrderedByName();
         model.addAttribute("newMember", new Member());
-        model.addAttribute("members", memberDao.findAllOrderedByName());
+        model.addAttribute("members", members);
+        model.addAttribute("membersJson", (new Gson()).toJson(members));
         return "index";
     }
 

@@ -7,6 +7,16 @@
 		<title>My Application</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="<c:url value="/static/resources/css/screen.css"/>"/>
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
+		
+		<script>
+			function myFunction() {
+				var doc = new jsPDF();
+				doc.text(document.getElementById("memberJson").value, 10, 10);
+				doc.save('a4.pdf');
+			}
+		</script>
 	</head>
 
 	<body>
@@ -83,8 +93,20 @@
 								<td>
 									REST URL for all members: <a href="<c:url value="/rest/members"/>">/rest/members</a>
 								</td>
+							</tr>				
+							<tr>
+								<td>
+									${members}
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="hidden" id="memberJson" value="${memberJson}">
+									<button onclick="myFunction()">Click me</button>
+								</td>
 							</tr>
 						</table>
+						
 					</c:otherwise>
 				</c:choose>
 			</div>
