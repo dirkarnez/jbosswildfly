@@ -71,7 +71,7 @@
 					</table>
 				</form:form>
 				<h2>Members</h2>
-				<p>New Comer: ${newMember.name}</p>
+				<p>New Comer: ${newJoinMember.name}</p>
 				<c:choose>
 					<c:when test="${members.size()==0}">
 						<em>No registered members.</em>

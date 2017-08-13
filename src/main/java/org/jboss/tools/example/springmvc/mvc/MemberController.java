@@ -27,7 +27,7 @@ public class MemberController
     	List<Member> members = memberDao.findAllOrderedByName();
         model.addAttribute("newMember", new Member());
         model.addAttribute("members", members);
-        model.addAttribute("newMember", memberDao.findNewComeMember());
+        model.addAttribute("newJoinMember", memberDao.findNewComeMember());
 //      model.addAttribute("membersJson", (new Gson()).toJson(members));
         return "index";
     }
