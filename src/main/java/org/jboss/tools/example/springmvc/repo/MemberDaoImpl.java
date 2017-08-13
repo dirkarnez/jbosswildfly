@@ -63,6 +63,10 @@ public class MemberDaoImpl implements MemberDao {
 	    cq.select(root).where(cb.equal(root.get("id"), sq));
 
 	    TypedQuery<Member> query = em.createQuery(cq);
-	    return query.getSingleResult();
+	    try {
+	    	return query.getSingleResult();
+	    } catch (Exception ex) {
+	    	return null;
+	    }
 	}
 }
