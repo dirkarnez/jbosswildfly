@@ -58,9 +58,7 @@ public class MemberDaoImpl implements MemberDao {
 
 	    Subquery<Long> sq = cq.subquery(Long.class);
 	    Root<Member> sroot = sq.from(Member.class);
-	    sq.select(
-	        cb.greatest(sroot.get("id"))
-	    );
+	    sq.select(cb.greatest(sroot.get("id")));
 	    
 	    cq.select(root).where(cb.equal(root.get("id"), sq));
 
