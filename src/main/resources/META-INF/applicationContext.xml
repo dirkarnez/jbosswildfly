@@ -18,6 +18,4 @@
 
 	<tx:annotation-driven />
 
-<!-- 	<jpa:repositories base-package="com.acme.repositories" /> -->
-
 </beans>
