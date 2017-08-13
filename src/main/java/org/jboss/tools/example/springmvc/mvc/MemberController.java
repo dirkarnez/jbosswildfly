@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.google.gson.Gson;
-
 @Controller
 @RequestMapping(value="/")
 public class MemberController
@@ -29,7 +27,8 @@ public class MemberController
     	List<Member> members = memberDao.findAllOrderedByName();
         model.addAttribute("newMember", new Member());
         model.addAttribute("members", members);
-        model.addAttribute("membersJson", (new Gson()).toJson(members));
+        model.addAttribute("newMember", memberDao.findNewComeMember());
+//        model.addAttribute("membersJson", (new Gson()).toJson(members));
         return "index";
     }
 

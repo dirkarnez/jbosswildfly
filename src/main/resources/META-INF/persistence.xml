@@ -13,6 +13,9 @@
 			<property name="eclipselink.target-server" value="JBoss"/>
 			<property name="eclipselink.target-database" value="org.eclipse.persistence.platform.database.MySQLPlatform" />
 			<property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
+			<property name="eclipselink.logging.level" value="FINE"/>
+			<property name="eclipselink.logging.level.sql" value="FINE"/>
+			<property name="eclipselink.logging.parameters" value="true"/>
 		</properties>
    </persistence-unit>
 </persistence>

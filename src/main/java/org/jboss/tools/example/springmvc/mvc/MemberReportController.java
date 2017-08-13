@@ -24,20 +24,12 @@ public class MemberReportController {
 
 	@RequestMapping(method = RequestMethod.GET, value = "pdf")
 	public ModelAndView generatePdfReport(ModelAndView modelAndView) {
-
 		Map<String, Object> parameterMap = new HashMap<String, Object>();
-
     	List<Member> members = memberDao.findAllOrderedByName();
-
 		JRDataSource JRdataSource = new JRBeanCollectionDataSource(members);
-
 		parameterMap.put("datasource", JRdataSource);
-
 		// pdfReport bean has ben declared in the jasper-views.xml file
-		modelAndView = new ModelAndView("pdfReport", parameterMap);
-
-		return modelAndView;
-
+		return new ModelAndView("pdfReport", parameterMap);
 	}
 
 //	@RequestMapping(method = RequestMethod.GET, value = "xls")

@@ -6,21 +6,30 @@
 	<head>
 		<title>My Application</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="<c:url value="/static/resources/css/screen.css"/>"/>
 		
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
-		
-		<script>
-			function myFunction(content) {
-				var doc = new jsPDF();
-				doc.text(content, 10, 10);
-				doc.save('a4.pdf');
-			}
-		</script>
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.13/js/dataTables.bootstrap4.min.js"></script>
+	    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" rel="stylesheet"/>
+	    <link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
+	    <style>
+	        .table-hover tbody tr:hover td {
+	            background-color: #D1D119;
+	        }
+	    </style>
 	</head>
 
 	<body>
-		<div id="container">
+	<script>
+		$(document).ready(function() {
+			$('#example').DataTable();
+		});
+	</script>
+	<div class="container">
 			<div class="dualbrand">
 				<img src="<c:url value="/static/resources/gfx/dualbrand_logo.png"/>"/>
 			</div>
@@ -62,13 +71,14 @@
 					</table>
 				</form:form>
 				<h2>Members</h2>
+				<p>New Comer: ${newMember.name}</p>
 				<c:choose>
 					<c:when test="${members.size()==0}">
 						<em>No registered members.</em>
 					</c:when>
 					<c:otherwise>
-						<table class="simpletablestyle">
-							<thead>
+						<table id="example" class="table table-hover">
+							<thead class="thead-inverse">
 								<tr>
 									<th>Id</th>
 									<th>Name</th>
@@ -90,19 +100,17 @@
 						</table>
 						<table class="simpletablestyle">
 							<tr>
-								<td>
-									REST URL for all members: <a href="<c:url value="/rest/members"/>">/rest/members</a>
+								<td>REST URL for all members: <a
+									href="<c:url value="/rest/members"/>">/rest/members</a>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<input type="hidden" id="membersJson" value="${membersJson}">
-									<button onclick="myFunction(${membersJson})">Click me</button>
+									<a href="<c:url value="/report/pdf"/>">Get a PDF file of all members here</a></p>
 								</td>
 							</tr>
 						</table>
-						
-					</c:otherwise>
+				</c:otherwise>
 				</c:choose>
 			</div>
 			<div id="aside">

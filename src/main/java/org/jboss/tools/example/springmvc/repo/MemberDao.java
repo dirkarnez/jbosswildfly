@@ -9,6 +9,8 @@ public interface MemberDao
     public Member findById(Long id);
 
     public Member findByEmail(String email);
+    
+    public Member findNewComeMember();
 
     public List<Member> findAllOrderedByName();
 
