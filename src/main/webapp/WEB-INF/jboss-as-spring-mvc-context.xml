@@ -15,12 +15,12 @@
 		<property name="suffix" value=".jsp"/>
 	</bean>
 	
-	<beans:import resource="jasper-views.xml"/> 
+	<import resource="jasper-views.xml"/> 
 
-    <beans:bean class="org.springframework.web.servlet.view.XmlViewResolver">
-        <beans:property name="location" value="/WEB-INF/spring/app/jasper-views.xml"/>
-        <beans:property name="order" value="0"/>
-    </beans:bean> 
+    <bean class="org.springframework.web.servlet.view.XmlViewResolver">
+        <property name="location" value="/WEB-INF/spring/app/jasper-views.xml"/>
+        <property name="order" value="0"/>
+    </bean> 
     
 	<mvc:resources mapping="/static/**" location="/"/>
 
