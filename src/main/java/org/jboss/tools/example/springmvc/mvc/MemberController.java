@@ -28,7 +28,7 @@ public class MemberController
         model.addAttribute("newMember", new Member());
         model.addAttribute("members", members);
         model.addAttribute("newMember", memberDao.findNewComeMember());
-//        model.addAttribute("membersJson", (new Gson()).toJson(members));
+//      model.addAttribute("membersJson", (new Gson()).toJson(members));
         return "index";
     }
 
